@@ -7,7 +7,7 @@ endpoints.route('/agreements').post(async function (req, res) {
     const db = mongoDb.getDb();
     console.log({body: req.body})
     const document = {
-      agreement,
+      agreement: req.body.agreement,
       billing:req.body.billing,
       subsidiary: req.body.subsidiary,
       payment: req.body.payment,
