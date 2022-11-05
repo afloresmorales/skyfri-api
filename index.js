@@ -16,7 +16,7 @@ app.use(function (err, _req, res) {
 });
 
 // perform a database connection when the server starts
-// mongoDb.connectToServer();
+mongoDb.connectToServer();
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });

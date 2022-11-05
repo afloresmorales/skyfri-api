@@ -1,14 +1,9 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
-const connectionString = "mongodb+srv://drdres25:FpUqaQMfNzDQ8@cluster0.z6lctgu.mongodb.net/?retryWrites=true&w=majority"; //only able to connect if ip is authorized
-const client = new MongoClient(connectionString);
-const dbName = "test";
 const endpoints = express.Router();
-
+const mongoDb = require('../db/config');
 
 endpoints.route('/agreements').post(async function (req, res) {
-    await client.connect();
-    const db = client.db(dbName);
+    const db = mongoDb.getDb();
     console.log({body: req.body})
     const document = {
       agreement: req.body.agreement,

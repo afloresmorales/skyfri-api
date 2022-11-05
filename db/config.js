@@ -5,8 +5,8 @@ const client = new MongoClient(connectionString);
 let dbConnection = client.db('test');
 
 module.exports = {
-  connectToServer: function () {
-    client.connect();
+  connectToServer: async function () {
+    await client.connect();
   },
 
   getDb: function () {
